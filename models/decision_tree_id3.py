@@ -21,7 +21,7 @@ class Node(object):
 
 
 class ID3Tree(BaseEstimator, ClassifierMixin):
-    def __init__(self, split_features_fun = "None", fnames = None,  max_depth = 10000000, classnames = None, min_samples_split=2):
+    def __init__(self, split_features_fun ="None", fnames = None,  max_depth = 10000000, classnames = None, min_samples_split=2):
         '''
 
         :param split_features_fun: możliwe wartości None, log2, sqrt

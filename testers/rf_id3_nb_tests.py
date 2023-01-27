@@ -25,7 +25,7 @@ def test_custom_CARS():
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=88)
 
-    rf = RandomForest_NaivyBayes(num_trees=100, which_NaiveBayes = 4, max_depth= 10)
+    rf = RandomForest_NaivyBayes(num_trees=100, nb_at_every= 4, max_depth= 10)
 
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_test)
@@ -49,7 +49,7 @@ def test_custom_MUSHROOMS():
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=88)
 
-    rf = RandomForest_NaivyBayes(n_trees=100, which_NaiveBayes = 4, max_depth= 10)
+    rf = RandomForest_NaivyBayes(n_trees=100, nb_at_every= 4, max_depth= 10)
 
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_test)
@@ -73,7 +73,7 @@ def test_custom_VOTES():
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=88)
 
-    rf = RandomForest_NaivyBayes(num_trees=100, which_NaiveBayes = 4, max_depth= 10)
+    rf = RandomForest_NaivyBayes(num_trees=100, nb_at_every= 4, max_depth= 10)
 
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_test)

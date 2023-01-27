@@ -8,8 +8,8 @@ from models.decision_tree_id3 import ID3Tree
 
 
 class RandomForest_NaivyBayes(BaseEstimator, ClassifierMixin):
-    def __init__(self, n_trees=50, subsample_size=None, max_depth=5,bootstrap=True,
-                 random_state=None, which_NaiveBayes = 2, min_samples_split = 2, split_features_fun = None):
+    def __init__(self, n_trees=50, subsample_size=None, max_depth=10000000, bootstrap=True,
+                 random_state=None, nb_at_every = 2, min_samples_split = 2, split_features_fun = "None"):
 
         # hiperparametry drzewa ID3
         self.split_features_fun = split_features_fun
@@ -21,7 +21,7 @@ class RandomForest_NaivyBayes(BaseEstimator, ClassifierMixin):
         self.subsample_size = subsample_size
         self.bootstrap = bootstrap
         self.random_state = random_state
-        self.which_NaiveBayes = which_NaiveBayes
+        self.nb_at_every = nb_at_every
         self.trees = []
 
 
@@ -58,19 +58,16 @@ class RandomForest_NaivyBayes(BaseEstimator, ClassifierMixin):
             y = y.values
 
         num_built = 0
-        which_NaiveBayes = 1
 
         while num_built < self.n_trees:
-            if which_NaiveBayes == self.which_NaiveBayes:
+            if num_built % self.nb_at_every:
                 gnb = MultinomialNB()
                 _X, _y = self.sample(X, y, self.random_state)
                 clf_nb = gnb.fit(_X, _y)
                 self.trees.append(clf_nb)
-                which_NaiveBayes = 1
 
             else:
-                split_features_funInTree = self.randomSplitFeatures()
-                clf_id3 = ID3Tree(max_depth = self.max_depth, min_samples_split = self.min_samples_split, split_features_fun = split_features_funInTree)
+                clf_id3 = ID3Tree(max_depth = self.max_depth, min_samples_split = self.min_samples_split, split_features_fun = self.split_features_fun)
 
                 # Obtain data sample
                 _X, _y = self.sample(X, y, self.random_state)
@@ -78,7 +75,6 @@ class RandomForest_NaivyBayes(BaseEstimator, ClassifierMixin):
                 clf_id3.fit(_X, _y)
                 # Save the classifier
                 self.trees.append(clf_id3)
-                which_NaiveBayes += 1
 
             num_built += 1
 
@@ -98,6 +94,3 @@ class RandomForest_NaivyBayes(BaseEstimator, ClassifierMixin):
 
         return predicted_classes
 
-    def randomSplitFeatures(self):
-        featuresSplit_list = ["None", "log2", "sqrt"]
-        return np.random.choice(featuresSplit_list)
