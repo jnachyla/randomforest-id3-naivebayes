@@ -157,7 +157,7 @@ class DecisionTreeClassifier:
             else:
                 node = node.right
 
-        return node.value
+        return node.threshold
 
 
     def printTree(self):
@@ -167,10 +167,10 @@ class DecisionTreeClassifier:
         nodes.append(self.node)
         while len(nodes) > 0:
             node = nodes.popleft()
-            print(node.value)
+            print(node.threshold)
             if node.childs:
                 for child in node.childs:
-                    print('({})'.format(child.value))
+                    print('({})'.format(child.threshold))
                     nodes.append(child.next)
             elif node.next:
                 print(node.next)

@@ -10,12 +10,14 @@ class Node(object):
 
         self.predicted_class = None
         # for real attributes
-        self.thresholds = []
-        self.value = None
+        self.threshold = None
         self.feature_idx = None
         self.children = []
         self.fname = None
         self.next=None
+
+    def is_leaf_node(self):
+        return self.predicted_class is not None
 
 
 class ID3Tree(object):
@@ -106,7 +108,7 @@ class ID3Tree(object):
 
             if len(value_mask) == 0:
                 child_node = Node()
-                child_node.value = v
+                child_node.threshold = v
                 # tego atrybutu zbiór wartości jest pusty, tworzymy liść
                 most_freq_class_idx = np.argmax(uniq_classes_freqs[1])
                 child_node.predicted_class = int(uniq_classes_freqs[0][most_freq_class_idx])
@@ -118,7 +120,7 @@ class ID3Tree(object):
                 Sy_new = Sy[value_mask]
                 A_ids = np.delete(A_ids, np.where(A_ids == best_attr))
                 child_node = self._build_tree(Sx=Sx_new, Sy=Sy_new, A_ids = A_ids, node = None, depth = depth+1)
-                child_node.value = v
+                child_node.threshold = v
                 node.children.append(child_node)
         return node
 
@@ -137,27 +139,24 @@ class ID3Tree(object):
     def predict(self, X,node=None):
         if not node:
             node = self.root
-        rows= []
-        for row in X:
-            c = self._pred(node, row)
-            rows.append(c)
+        return np.array([self._pred(x=x, node=node) for x in X])
 
-        return np.array(rows)
 
-    def _pred(self, node,val):
-        nchild = len(node.children)
-        if nchild >0:
-            for c in node.children:
-                if c.predicted_class is not None:
-                    return c.predicted_class
+    def _pred(self, node:Node, x):
 
-                if val[c.feature_idx] <= c.value:
-                    return self._pred(c, val)
-                else:
-                    continue
-            return self._pred(node.children[nchild-1], val)
-        else:
+        if node.is_leaf_node():
             return node.predicted_class
+
+        nchild = len(node.children)
+
+        for child in node.children:
+            if x[node.feature_idx] <= child.threshold:
+                return self._pred(child, x)
+            else:
+                # dojdzie return funkcji, zwraca ostatnie dziecko
+                continue
+        return self._pred(node.children[nchild-1], x)
+
 
 
     def printTree(self):
@@ -167,10 +166,10 @@ class ID3Tree(object):
         nodes.append(self.root)
         while len(nodes) > 0:
             node = nodes.popleft()
-            print('({}{})'.format(node.value, node.fname))
+            print('({}{})'.format(node.threshold, node.fname))
             if node.children:
                 for child in node.children:
-                    print('({})'.format(child.value))
+                    print('({})'.format(child.threshold))
                     nodes.append(child)
 
 

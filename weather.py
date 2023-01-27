@@ -1,5 +1,7 @@
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder
+import numpy as np
+from sklearn import preprocessing
+from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from rf import CustomRandomForest
@@ -8,18 +10,24 @@ from rf import CustomRandomForest
 from sklearn.ensemble import RandomForestClassifier
 
 def preprocess_dataset():
-    df  = pd.read_csv("./datasets/cars.data", header = 0, delimiter = ',')
+    df  = pd.read_csv("./datasets/weather.csv", header = 0, delimiter = ',')
 
-    df = df.sample(frac=1)
+    #df = df.sample(frac=1)
 
-    ydf = df[['class']]
-    df.drop(columns=['class'], inplace=True)
+    ydf = df[['play']]
+    df.drop(columns=['play'], inplace=True)
     xdf = df
 
-    xdf = pd.get_dummies(data=xdf, columns=['buying', 'maint', 'lug_boot', 'safety'])
-    xdf['doors'].replace('5more', '5', inplace=True)
-    xdf['persons'].replace('more', '5', inplace=True)
-    xdf = xdf.apply(pd.to_numeric)
+    ord_enc = OrdinalEncoder()
+    xdf["outlook"] = ord_enc.fit_transform(xdf[["outlook"]])
+    ord_enc = OrdinalEncoder()
+    xdf["temperature"] = ord_enc.fit_transform(xdf[["temperature"]])
+    ord_enc = OrdinalEncoder()
+    xdf["humidity"] = ord_enc.fit_transform(xdf[["humidity"]])
+    ord_enc = OrdinalEncoder()
+    xdf["wind"] = ord_enc.fit_transform(xdf[["wind"]])
+
+    #xdf = pd.get_dummies(data=xdf, columns=xdf.columns.values.tolist())
 
     X = xdf.values
 
