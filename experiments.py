@@ -1,10 +1,7 @@
-import pandas as pd
 import numpy as np
-from sklearn import preprocessing
 from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_validate
-
 
 class ExperimentRunner(object):
     def __init__(self, model, model_name, X, y):

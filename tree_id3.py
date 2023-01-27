@@ -1,5 +1,4 @@
 import math
-from collections import deque
 
 from information_gain import information_gain
 from information_gain import entropy
@@ -7,7 +6,6 @@ import numpy as np
 
 class Node(object):
     def __init__(self):
-
         self.predicted_class = None
         # for real attributes
         self.threshold = None
@@ -21,7 +19,7 @@ class Node(object):
 
 
 class ID3Tree(object):
-    def __init__(self, split_features_fun = None, fnames = None,  max_depth=5, classnames = None, min_samples_split=2):
+    def __init__(self, split_features_fun = None, fnames = None,  max_depth = None, classnames = None, min_samples_split=None):
         '''
 
         :param split_features_fun: możliwe wartości None, log2, sqrt
@@ -51,6 +49,8 @@ class ID3Tree(object):
             if not self.root:
                 self.root = node
 
+        # warunki zakończenia
+        # przekroczenie maksymalnej glebokosci
         uniq_classes_freqs = np.unique(Sy, return_counts=True)
         if (depth>=self.max_depth or uniq_classes_freqs==1 or len(A_ids)<self.min_samples_split):
             most_freq_class_idx = np.argmax(uniq_classes_freqs[1])
@@ -60,7 +60,7 @@ class ID3Tree(object):
             return node
 
         # warunki zakończenia
-        #czy wszystkie Sy maja ta sama klase
+        # czy wszystkie Sy maja ta sama klase
         if len(uniq_classes_freqs[0]) == 1:
             node.predicted_class = int(uniq_classes_freqs[0])
             if self.classnames:
@@ -77,7 +77,7 @@ class ID3Tree(object):
             return node
 
         A_to_split = np.array(A_ids)
-        if  self.split_features_fun:
+        if  self.split_features_fun != "None":
             if self.split_features_fun == "log2":
                 A_to_split = np.random.choice(A_ids, int(math.log2(len(A_ids))))
             elif self.split_features_fun == "sqrt":
@@ -96,8 +96,6 @@ class ID3Tree(object):
 
         Sx_a_best = Sx[:, best_attr]
         best_attr_values = np.unique(Sx_a_best, return_counts=False)
-
-        # jeśli wartości jest więcej niż jedna to bierzemy środkową wartość
 
         best_attr_values = np.sort(best_attr_values)
 
@@ -156,26 +154,6 @@ class ID3Tree(object):
                 # dojdzie return funkcji, zwraca ostatnie dziecko
                 continue
         return self._pred(node.children[nchild-1], x)
-
-
-
-    def printTree(self):
-        if not self.root:
-            return
-        nodes = deque()
-        nodes.append(self.root)
-        while len(nodes) > 0:
-            node = nodes.popleft()
-            print('({}{})'.format(node.threshold, node.fname))
-            if node.children:
-                for child in node.children:
-                    print('({})'.format(child.threshold))
-                    nodes.append(child)
-
-
-
-
-
 
 
 

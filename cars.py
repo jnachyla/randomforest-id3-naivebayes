@@ -1,11 +1,5 @@
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
-from rf import CustomRandomForest
-
-
-from sklearn.ensemble import RandomForestClassifier
 
 def preprocess_dataset():
     df  = pd.read_csv("./datasets/cars.data", header = 0, delimiter = ',')
@@ -29,29 +23,3 @@ def preprocess_dataset():
     y = ydf
 
     return X,y
-
-
-def test_baseline():
-    X,y = preprocess_dataset()
-
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=88)
-
-    rf = RandomForestClassifier(random_state=88, n_estimators=10)
-
-    rf.fit(X_train, y_train)
-    y_pred = rf.predict(X_test)
-
-    print(classification_report(y_test, y_pred))
-
-def test_custom():
-    X,y = preprocess_dataset()
-
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=88)
-
-    rf = CustomRandomForest(num_trees=100)
-
-    rf.fit(X_train, y_train)
-    y_pred = rf.predict(X_test)
-
-    print(classification_report(y_test, y_pred))
-
