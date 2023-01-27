@@ -5,7 +5,6 @@ from sklearn.metrics import classification_report
 import cars
 import mushrooms
 import weather
-from ID3Github import DecisionTreeID3
 from decisionTree_ID3 import ID3Tree
 from information_gain import information_gain
 from information_gain import entropy
