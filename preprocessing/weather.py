@@ -1,18 +1,13 @@
 import pandas as pd
-import numpy as np
-from sklearn import preprocessing
-from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
-from rf_ID3_NB import RandomForest_NaivyBayes
-
-
+from models.rf_id3_nb import RandomForest_NaivyBayes
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
+
 
 def preprocess_dataset_weather():
-    df  = pd.read_csv("./datasets/weather.csv", header = 0, delimiter = ',')
-
-    #df = df.sample(frac=1)
+    df  = pd.read_csv("../datasets/weather.csv", header = 0, delimiter = ',')
 
     ydf = df[['play']]
     df.drop(columns=['play'], inplace=True)
@@ -63,5 +58,3 @@ def test_custom_WEATHER():
 
     print(classification_report(y_test, y_pred))
 
-test_baseline_WEATHER()
-test_custom_WEATHER()

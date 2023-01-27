@@ -1,8 +1,10 @@
 import math
 
-from information_gain import information_gain
-from information_gain import entropy
 import numpy as np
+
+from models.information_gain import entropy
+from models.information_gain import information_gain
+
 
 class Node(object):
     def __init__(self):

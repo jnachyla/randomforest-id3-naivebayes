@@ -2,6 +2,7 @@ import math
 
 import numpy as np
 
+
 def entropy(Sy):
     Sy_counts = np.unique(Sy, return_counts=True)[1]
 

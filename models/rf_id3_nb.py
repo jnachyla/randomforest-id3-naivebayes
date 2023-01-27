@@ -1,10 +1,10 @@
 import numpy as np
 import pandas as pd
-
 from scipy import stats
 from sklearn.base import BaseEstimator, ClassifierMixin
-from decisionTree_ID3 import ID3Tree
 from sklearn.naive_bayes import MultinomialNB
+
+from models.decision_tree_id3 import ID3Tree
 
 
 class RandomForest_NaivyBayes(BaseEstimator, ClassifierMixin):

@@ -1,15 +1,10 @@
-import numpy as np
 import pandas as pd
+from models.decision_tree_id3 import ID3Tree
 from sklearn.metrics import classification_report
 
-import cars
-import mushrooms
-import weather
-from decisionTree_ID3 import ID3Tree
-from information_gain import information_gain
-from information_gain import entropy
+from preprocessing import cars
 
-df = pd.read_csv('fever.csv', delimiter=',')
+df = pd.read_csv('../datasets/fever.csv', delimiter=',')
 
 # # case 1
 # tree = ID3Tree()

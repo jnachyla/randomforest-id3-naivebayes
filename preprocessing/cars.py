@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
 def preprocess_dataset_cars():
-    df  = pd.read_csv("./datasets/cars.data", header = 0, delimiter = ',')
+    df  = pd.read_csv("../datasets/cars.data", header = 0, delimiter = ',')
 
     df = df.sample(frac=1)
 

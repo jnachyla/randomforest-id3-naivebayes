@@ -1,14 +1,9 @@
 import pandas as pd
-import numpy as np
-from sklearn import preprocessing
 from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
-from rf_ID3_NB import RandomForest_NaivyBayes
-from sklearn.ensemble import RandomForestClassifier
+
 
 def preprocess_dataset_mushrooms():
-    df  = pd.read_csv("./datasets/agaricus-lepiota.data", header = 0, delimiter = ',')
+    df  = pd.read_csv("../datasets/agaricus-lepiota.data", header = 0, delimiter = ',')
 
     df = df.sample(frac=1)
 

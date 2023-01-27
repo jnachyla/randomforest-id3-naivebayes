@@ -1,10 +1,10 @@
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report
+from sklearn.model_selection import train_test_split
 
 from preprocessing.cars import preprocess_dataset_cars
 from preprocessing.mushrooms import preprocess_dataset_mushrooms
-from rf_ID3_NB import RandomForest_NaivyBayes
+from models.rf_id3_nb import RandomForest_NaivyBayes
 
 
 def test_baseline_CARS():
