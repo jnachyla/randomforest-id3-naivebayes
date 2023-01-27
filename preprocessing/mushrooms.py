@@ -3,7 +3,7 @@ from sklearn.preprocessing import LabelEncoder
 
 
 def preprocess_dataset_mushrooms():
-    df  = pd.read_csv("./datasets/agaricus-lepiota.data", header = 0, delimiter = ',')
+    df  = pd.read_csv("../preprocessing/agaricus-lepiota.data", header = 0, delimiter = ',')
 
     df = df.sample(frac=1)
 

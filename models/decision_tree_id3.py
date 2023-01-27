@@ -1,6 +1,7 @@
 import math
 
 import numpy as np
+from sklearn.base import BaseEstimator, ClassifierMixin
 
 from models.information_gain import entropy
 from models.information_gain import information_gain
@@ -19,8 +20,8 @@ class Node(object):
         return self.predicted_class is not None
 
 
-class ID3Tree(object):
-    def __init__(self, split_features_fun = "None", fnames = None,  max_depth = None, classnames = None, min_samples_split=None):
+class ID3Tree(BaseEstimator, ClassifierMixin):
+    def __init__(self, split_features_fun = "None", fnames = None,  max_depth = 10000000, classnames = None, min_samples_split=2):
         '''
 
         :param split_features_fun: możliwe wartości None, log2, sqrt
@@ -50,7 +51,9 @@ class ID3Tree(object):
         # warunki zakończenia
         # przekroczenie maksymalnej glebokosci
         uniq_classes_freqs = np.unique(Sy, return_counts=True)
-        if (depth>=self.max_depth or uniq_classes_freqs==1 or len(A_ids)<self.min_samples_split):
+
+        if (depth >= self.max_depth or uniq_classes_freqs == 1 or len(
+                A_ids) < self.min_samples_split):
             most_freq_class_idx = np.argmax(uniq_classes_freqs[1])
             node.predicted_class = int(uniq_classes_freqs[0][most_freq_class_idx])
             if self.classnames:
@@ -132,9 +135,8 @@ class ID3Tree(object):
         return [i for i, x in enumerate(Sx[:, attr_id]) if x == val]
 
 
-    def predict(self, X,node=None):
-        if not node:
-            node = self.root
+    def predict(self, X):
+        node = self.root
         return np.array([self._pred(x=x, node=node) for x in X])
 
 

@@ -1,0 +1,71 @@
+====================================
+
+Default Parameters
+Training model... RF Baseline Default
+Crossvalidation results:  RF Baseline Default
+Accuracy:  0.9635300443608014
+Macro Precision:  0.9114368840397107
+Macro Recall:  0.9268475742758039
+Macro F1:  0.9155418026317079
+
+Crossvalidation results:  RF Custom Default
+Accuracy:  0.7847425729264687
+Macro Precision:  0.6865870569261661
+Macro Recall:  0.44215869855822004
+Macro F1:  0.4829211232013292
+
+=====================================
+
+
+=== Simple models =========
+
+Crossvalidation results:  Tree ID3
+Accuracy:  0.9444414571851055
+Macro Precision:  0.8557566373391582
+Macro Recall:  0.8512170445184799
+Macro F1:  0.8476194713805925
+
+Crossvalidation results:  Naive Bayess
+Accuracy:  0.7523020567280548
+Macro Precision:  0.5851210455955479
+Macro Recall:  0.4491094631046784
+Macro F1:  0.4713648549752043
+====================================
+
+=== NUM ESTIMATORS=========
+
+Crossvalidation results:  Custom RF with ntrees = 10
+Accuracy:  0.8044058341174889
+Macro Precision:  0.6673881024973436
+Macro Recall:  0.47331888605812045
+Macro F1:  0.519072462374514
+
+Crossvalidation results:  Custom RF with ntrees = 20
+Accuracy:  0.7951539185374378
+Macro Precision:  0.6511756545228121
+Macro Recall:  0.44464277747770564
+Macro F1:  0.4817418223950815
+
+Crossvalidation results:  Custom RF with ntrees = 50
+Accuracy:  0.7887820943675226
+Macro Precision:  0.6770546461377306
+Macro Recall:  0.4649869070323616
+Macro F1:  0.5086717466857064
+
+Crossvalidation results:  Custom RF with ntrees = 100
+Accuracy:  0.7853138862750371
+Macro Precision:  0.6475749597777464
+Macro Recall:  0.4348821632912543
+Macro F1:  0.4735635823316808
+
+Crossvalidation results:  Custom RF with ntrees = 150
+Accuracy:  0.7801014921360399
+Macro Precision:  0.6099938016277215
+Macro Recall:  0.4378006562815175
+Macro F1:  0.4730757644435367
+
+Crossvalidation results:  Custom RF with ntrees = 200
+Accuracy:  0.7853172469417932
+Macro Precision:  0.6382248398917245
+Macro Recall:  0.44859560296163165
+Macro F1:  0.4884970090295936

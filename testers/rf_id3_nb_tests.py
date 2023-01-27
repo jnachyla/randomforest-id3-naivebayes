@@ -49,7 +49,7 @@ def test_custom_MUSHROOMS():
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=88)
 
-    rf = RandomForest_NaivyBayes(num_trees=100, which_NaiveBayes = 4, max_depth= 10)
+    rf = RandomForest_NaivyBayes(n_trees=100, which_NaiveBayes = 4, max_depth= 10)
 
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_test)
@@ -80,9 +80,9 @@ def test_custom_VOTES():
 
     print(classification_report(y_test, y_pred))
 
-test_baseline_VOTES()
-test_custom_VOTES()
-#test_baseline_CARS()
+# test_baseline_VOTES()
+# test_custom_VOTES()
+
 #test_custom_CARS()
 # test_baseline_MUSHROOMS()
 # test_custom_MUSHROOMS()

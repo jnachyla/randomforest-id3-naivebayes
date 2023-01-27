@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
 def preprocess_dataset_housevotes():
-    df  = pd.read_csv("./datasets/house-votes-84.data", header = None, delimiter = ',')
+    df  = pd.read_csv("../preprocessing/house-votes-84.data", header = None, delimiter = ',')
 
     df = df.sample(frac=1)
 
