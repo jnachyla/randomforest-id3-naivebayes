@@ -19,7 +19,7 @@ class Node(object):
 
 
 class ID3Tree(object):
-    def __init__(self, split_features_fun = None, fnames = None, classnames = None):
+    def __init__(self, split_features_fun = None, fnames = None,  max_depth=5, classnames = None, min_samples_split=2):
         '''
 
         :param split_features_fun: możliwe wartości None, log2, sqrt
@@ -29,6 +29,8 @@ class ID3Tree(object):
         self.fnames = fnames
         self.split_features_fun = split_features_fun
         self.root = None
+        self.max_depth = max_depth
+        self.min_samples_split = min_samples_split
 
     def fit(self, X, y):
 
@@ -40,16 +42,23 @@ class ID3Tree(object):
 
 
 
-    def _build_tree(self, A_ids:np.ndarray, Sx:np.ndarray, Sy:np.ndarray, node:Node):
+    def _build_tree(self, A_ids:np.ndarray, Sx:np.ndarray, Sy:np.ndarray, node:Node, depth=0):
 
         if not node:
             node = Node()
             if not self.root:
                 self.root = node
 
+        uniq_classes_freqs = np.unique(Sy, return_counts=True)
+        if (depth>=self.max_depth or uniq_classes_freqs==1 or len(A_ids)<self.min_samples_split):
+            most_freq_class_idx = np.argmax(uniq_classes_freqs[1])
+            node.predicted_class = int(uniq_classes_freqs[0][most_freq_class_idx])
+            if self.classnames:
+                node.fname = self.classnames[int(node.predicted_class)]
+            return node
+
         # warunki zakończenia
         #czy wszystkie Sy maja ta sama klase
-        uniq_classes_freqs = np.unique(Sy, return_counts=True)
         if len(uniq_classes_freqs[0]) == 1:
             node.predicted_class = int(uniq_classes_freqs[0])
             if self.classnames:
@@ -108,7 +117,7 @@ class ID3Tree(object):
                 Sx_new = Sx[value_mask]
                 Sy_new = Sy[value_mask]
                 A_ids = np.delete(A_ids, np.where(A_ids == best_attr))
-                child_node = self._build_tree(Sx=Sx_new, Sy=Sy_new, A_ids = A_ids, node = None)
+                child_node = self._build_tree(Sx=Sx_new, Sy=Sy_new, A_ids = A_ids, node = None, depth = depth+1)
                 child_node.value = v
                 node.children.append(child_node)
         return node

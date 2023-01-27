@@ -37,10 +37,10 @@ y_pred = tree.predict(X)
 
 print(classification_report(y, y_pred))
 
-from sklearn import tree
-id3_pro = tree.DecisionTreeClassifier()
-id3_pro.fit(X,y)
-y_pred2 = id3_pro.predict(X)
-
-print(classification_report(y, y_pred2))
-print(tree.plot_tree(id3_pro))
+# from sklearn import tree
+# id3_pro = tree.DecisionTreeClassifier()
+# id3_pro.fit(X,y)
+# y_pred2 = id3_pro.predict(X)
+#
+# print(classification_report(y, y_pred2))
+# print(tree.plot_tree(id3_pro))
