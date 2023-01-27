@@ -8,17 +8,23 @@ from models.decision_tree_id3 import ID3Tree
 
 
 class RandomForest_NaivyBayes(BaseEstimator, ClassifierMixin):
-    def __init__(self, num_trees=5, subsample_size=None, max_depth=5, max_features=None, bootstrap=True,
-                 random_state=None, which_NaiveBayes = 2, min_samples_split = 2):
+    def __init__(self, num_trees=50, subsample_size=None, max_depth=5, max_features=None, bootstrap=True,
+                 random_state=-1, which_NaiveBayes = 2, min_samples_split = 2, split_features_fun = None):
+
+        # hiperparametry drzewa ID3
+        self.split_features_fun = split_features_fun
         self.n_trees = num_trees
-        self.subsample_size = subsample_size
         self.max_depth = max_depth
-        self.max_features = max_features
+        self.min_samples_split = min_samples_split
+
+        #hiperparametry lasu
+        self.subsample_size = subsample_size
         self.bootstrap = bootstrap
         self.random_state = random_state
         self.which_NaiveBayes = which_NaiveBayes
-        self.min_samples_split = min_samples_split
         self.trees = []
+
+
 
     def sample(self, X, y, random_state):
         n_rows, n_cols = X.shape
