@@ -19,7 +19,7 @@ class Node(object):
 
 
 class ID3Tree(object):
-    def __init__(self, split_features_fun = None, fnames = None,  max_depth = None, classnames = None, min_samples_split=None):
+    def __init__(self, split_features_fun = "None", fnames = None,  max_depth = None, classnames = None, min_samples_split=None):
         '''
 
         :param split_features_fun: możliwe wartości None, log2, sqrt

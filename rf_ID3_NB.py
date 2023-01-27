@@ -3,7 +3,7 @@ import pandas as pd
 
 from scipy import stats
 from sklearn.base import BaseEstimator, ClassifierMixin
-from tree_id3 import ID3Tree
+from decisionTree_ID3 import ID3Tree
 from sklearn.naive_bayes import GaussianNB
 
 

@@ -4,12 +4,12 @@ from sklearn import preprocessing
 from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
-from rf import CustomRandomForest
+from rf_ID3_NB import RandomForest_NaivyBayes
 
 
 from sklearn.ensemble import RandomForestClassifier
 
-def preprocess_dataset():
+def preprocess_dataset_weather():
     df  = pd.read_csv("./datasets/weather.csv", header = 0, delimiter = ',')
 
     #df = df.sample(frac=1)
@@ -39,8 +39,8 @@ def preprocess_dataset():
     return X,y
 
 
-def test_baseline():
-    X,y = preprocess_dataset()
+def test_baseline_WEATHER():
+    X,y = preprocess_dataset_weather()
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=88)
 
@@ -51,15 +51,17 @@ def test_baseline():
 
     print(classification_report(y_test, y_pred))
 
-def test_custom():
-    X,y = preprocess_dataset()
+def test_custom_WEATHER():
+    X,y = preprocess_dataset_weather()
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=88)
 
-    rf = CustomRandomForest(num_trees=100)
+    rf = RandomForest_NaivyBayes(num_trees=100, which_NaiveBayes = 4, max_depth= 10)
 
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_test)
 
     print(classification_report(y_test, y_pred))
 
+test_baseline_WEATHER()
+test_custom_WEATHER()

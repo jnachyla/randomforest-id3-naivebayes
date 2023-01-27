@@ -6,7 +6,7 @@ import cars
 import mushrooms
 import weather
 from ID3Github import DecisionTreeID3
-from tree_id3 import ID3Tree
+from decisionTree_ID3 import ID3Tree
 from information_gain import information_gain
 from information_gain import entropy
 
@@ -34,18 +34,18 @@ iris = datasets.load_iris()
 
 #X,y = mushrooms.preprocess_dataset()
 #X,y  = weather.preprocess_dataset()
-X,y = cars.preprocess_dataset()
+X,y = cars.preprocess_dataset_cars()
 #tree = ID3Tree(split_features_fun=None, fnames=['outlook','temperature','humidity','wind'],classnames=['yes','no'])
-tree = ID3Tree()
+tree = ID3Tree(max_depth = 1000, min_samples_split = 2)
 tree.fit(X,y)
 
 y_pred = tree.predict(X)
 
 print(classification_report(y, y_pred))
 
-# from sklearn import tree
-id3_pro = DecisionTreeID3(max_depth = 1000, min_samples_split = 2,min_gain=0.0)
-id3_pro.fit(pd.DataFrame(X),pd.DataFrame(y).iloc[:,0])
-y_pred2 = id3_pro.predict(pd.DataFrame(X))
-
-print(classification_report(y, y_pred2))
+# # from sklearn import tree
+# id3_pro = DecisionTreeID3(max_depth = 1000, min_samples_split = 2,min_gain=0.0)
+# id3_pro.fit(pd.DataFrame(X),pd.DataFrame(y).iloc[:,0])
+# y_pred2 = id3_pro.predict(pd.DataFrame(X))
+#
+# print(classification_report(y, y_pred2))
