@@ -7,7 +7,6 @@ import numpy as np
 class Node(object):
     def __init__(self):
         self.predicted_class = None
-        # for real attributes
         self.threshold = None
         self.feature_idx = None
         self.children = []
@@ -37,9 +36,6 @@ class ID3Tree(object):
         A_ids = np.array(list(range(len(X[0, :]))))
 
         self._build_tree(A_ids, X, y, None)
-        print(self.root)
-
-
 
 
     def _build_tree(self, A_ids:np.ndarray, Sx:np.ndarray, Sy:np.ndarray, node:Node, depth=0):
