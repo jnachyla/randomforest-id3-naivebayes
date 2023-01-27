@@ -8,7 +8,7 @@ import pandas as pd
 
 from scipy import stats
 from sklearn.base import BaseEstimator, ClassifierMixin
-from tree_id3 import DecisionTreeClassifier
+from tree_id3 import ID3Tree
 
 
 class CustomRandomForest(BaseEstimator, ClassifierMixin):
@@ -100,7 +100,7 @@ class CustomRandomForest(BaseEstimator, ClassifierMixin):
 
         while num_built < self.num_trees:
 
-            clf = DecisionTreeClassifier()
+            clf = ID3Tree()
 
             # Obtain data sample
             _X, _y = self.sample(X, y, self.random_state)

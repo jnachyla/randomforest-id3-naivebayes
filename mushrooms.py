@@ -54,5 +54,4 @@ def test_custom():
 
     print(classification_report(y_test, y_pred))
 
-#test_baseline()
-test_custom()
+
