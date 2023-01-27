@@ -4,7 +4,7 @@ import pandas as pd
 from scipy import stats
 from sklearn.base import BaseEstimator, ClassifierMixin
 from decisionTree_ID3 import ID3Tree
-from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import MultinomialNB
 
 
 class RandomForest_NaivyBayes(BaseEstimator, ClassifierMixin):
@@ -56,7 +56,7 @@ class RandomForest_NaivyBayes(BaseEstimator, ClassifierMixin):
 
         while num_built < self.n_trees:
             if which_NaiveBayes == self.which_NaiveBayes:
-                gnb = GaussianNB()
+                gnb = MultinomialNB()
                 _X, _y = self.sample(X, y, self.random_state)
                 clf_nb = gnb.fit(_X, _y)
                 self.trees.append(clf_nb)
