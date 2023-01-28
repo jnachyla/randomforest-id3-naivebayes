@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 from sklearn.base import BaseEstimator, ClassifierMixin
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import CategoricalNB
 
 from models.decision_tree_id3 import ID3Tree
 
@@ -60,8 +60,8 @@ class RandomForest_NaivyBayes(BaseEstimator, ClassifierMixin):
         num_built = 0
 
         while num_built < self.n_trees:
-            if num_built % self.nb_at_every:
-                gnb = MultinomialNB()
+            if num_built % self.nb_at_every == 0:
+                gnb = CategoricalNB()
                 _X, _y = self.sample(X, y, self.random_state)
                 clf_nb = gnb.fit(_X, _y)
                 self.trees.append(clf_nb)

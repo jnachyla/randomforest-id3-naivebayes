@@ -4,9 +4,7 @@ from evalautors.eval import ModelEvaluator
 from models.decision_tree_id3 import ID3Tree
 from models.rf_id3_nb import RandomForest_NaivyBayes
 from preprocessing.cars import preprocess_dataset_cars
-from preprocessing.house_votes import preprocess_dataset_housevotes
-from sklearn.naive_bayes import MultinomialNB
-
+from sklearn.naive_bayes import CategoricalNB
 
 
 def run_default_cars():
@@ -48,7 +46,7 @@ def run_default_on_simple_cars():
 
     tree = ID3Tree()
 
-    nb = MultinomialNB()
+    nb = CategoricalNB()
 
     evaluator_tree = ModelEvaluator(model_name="Tree ID3", model=tree, eval_name="Tree ID3 Default Parameters", dataset_name="Cars")
     evaluator_tree.run_multiclass(X=X,y=y)

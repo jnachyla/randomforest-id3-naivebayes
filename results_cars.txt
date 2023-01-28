@@ -1,0 +1,257 @@
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/bin/python /Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/experiments_cars.py
+====================================
+Default Parameters
+Training model... RF Baseline Default
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/preprocessing/_label.py:98: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/preprocessing/_label.py:133: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+Crossvalidation results:  RF Baseline Default
+Accuracy:  0.9652876730743382
+Macro Precision:  0.9208880070112292
+Macro Recall:  0.912321370814194
+Macro F1:  0.9118243452839228
+====================================
+Default Parameters
+Training model... RF Custom Default
+Crossvalidation results:  RF Custom Default
+Accuracy:  0.8617018416453824
+Macro Precision:  0.8914486806921328
+Macro Recall:  0.6725517106497968
+Macro F1:  0.7385030849994865
+====================================
+Tree ID3 Default Parameters
+Training model... Tree ID3
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/preprocessing/_label.py:98: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/preprocessing/_label.py:133: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+Crossvalidation results:  Tree ID3
+Accuracy:  0.9531355020836134
+Macro Precision:  0.8822892402074624
+Macro Recall:  0.8833618136249715
+Macro F1:  0.8788476306435339
+====================================
+NB Default Parameters
+Training model... Naive Bayess
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Crossvalidation results:  Naive Bayess
+Accuracy:  0.7523121387283236
+Macro Precision:  0.6199216024218666
+Macro Recall:  0.4275073809762805
+Macro F1:  0.4559027309013012
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/preprocessing/_label.py:98: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/preprocessing/_label.py:133: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+====================================
+RF different Num Trees experiment
+Training model... Naive Random Forest 10
+Crossvalidation results:  Naive Random Forest 10
+Accuracy:  0.8987162252990993
+Macro Precision:  0.8965276045454011
+Macro Recall:  0.7138033816263482
+Macro F1:  0.773405390313249
+====================================
+RF different Num Trees experiment
+Training model... Naive Random Forest 20
+Crossvalidation results:  Naive Random Forest 20
+Accuracy:  0.8981650759510688
+Macro Precision:  0.901770874415474
+Macro Recall:  0.7223542406556761
+Macro F1:  0.7817628314794809
+====================================
+RF different Num Trees experiment
+Training model... Naive Random Forest 50
+Crossvalidation results:  Naive Random Forest 50
+Accuracy:  0.8749932786664875
+Macro Precision:  0.8845946350636005
+Macro Recall:  0.6986837126191193
+Macro F1:  0.7568244146242333
+====================================
+RF different Num Trees experiment
+Training model... Naive Random Forest 100
+Crossvalidation results:  Naive Random Forest 100
+Accuracy:  0.8715217099072456
+Macro Precision:  0.9059421258082988
+Macro Recall:  0.7048529819462834
+Macro F1:  0.7670512700438575
+====================================
+RF different Num Trees experiment
+Training model... Naive Random Forest 150
+Crossvalidation results:  Naive Random Forest 150
+Accuracy:  0.868040059147735
+Macro Precision:  0.905398163817142
+Macro Recall:  0.6969455584288121
+Macro F1:  0.7591980497728319
+====================================
+RF different Num Trees experiment
+Training model... Naive Random Forest 200
+Crossvalidation results:  Naive Random Forest 200
+Accuracy:  0.868621454496572
+Macro Precision:  0.8942938799609493
+Macro Recall:  0.6939507263071856
+Macro F1:  0.7591167465545304
+====================================
+RF different max depth experiment
+Training model... Naive Random Forest 5
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Crossvalidation results:  Naive Random Forest 5
+Accuracy:  0.8287068154321817
+Macro Precision:  0.7309363094249893
+Macro Recall:  0.504271486089668
+Macro F1:  0.5490266548649722
+====================================
+RF different max depth experiment
+Training model... Naive Random Forest 10
+Crossvalidation results:  Naive Random Forest 10
+Accuracy:  0.868631536496841
+Macro Precision:  0.8957229422902422
+Macro Recall:  0.6851595175159768
+Macro F1:  0.750887427853911
+====================================
+RF different max depth experiment
+Training model... Naive Random Forest 20
+Crossvalidation results:  Naive Random Forest 20
+Accuracy:  0.8645785723887618
+Macro Precision:  0.8948678347232285
+Macro Recall:  0.689277986766025
+Macro F1:  0.7526690496584096
+====================================
+RF different max depth experiment
+Training model... Naive Random Forest 30
+Crossvalidation results:  Naive Random Forest 30
+Accuracy:  0.8663126764350046
+Macro Precision:  0.889596119559935
+Macro Recall:  0.6891448065491128
+Macro F1:  0.7495923740457175
+====================================
+RF different max depth experiment
+Training model... Naive Random Forest 50
+Crossvalidation results:  Naive Random Forest 50
+Accuracy:  0.8720863019223014
+Macro Precision:  0.8869905533701579
+Macro Recall:  0.696817835274773
+Macro F1:  0.7583926749938772
+====================================
+RF different max depth experiment
+Training model... Naive Random Forest 100
+Crossvalidation results:  Naive Random Forest 100
+Accuracy:  0.873252453286732
+Macro Precision:  0.9042646860955559
+Macro Recall:  0.7032841560353522
+Macro F1:  0.7668714563684353
+====================================
+RF different max depth experiment
+Training model... Naive Random Forest 150
+Crossvalidation results:  Naive Random Forest 150
+Accuracy:  0.8732558139534884
+Macro Precision:  0.8967430572921232
+Macro Recall:  0.6939314473405382
+Macro F1:  0.7567378171912508
+====================================
+RF different max depth experiment
+Training model... Naive Random Forest 200
+Crossvalidation results:  Naive Random Forest 200
+Accuracy:  0.8715183492404893
+Macro Precision:  0.8981514179472612
+Macro Recall:  0.7003651651378924
+Macro F1:  0.7645626239103381
+====================================
+RF different fun experiment
+Training model... Custom RF with ntrees = None
+Crossvalidation results:  Custom RF with ntrees = None
+Accuracy:  0.8674620244656539
+Macro Precision:  0.8943070628199191
+Macro Recall:  0.6921240442173457
+Macro F1:  0.7550159248896163
+====================================
+RF different fun experiment
+Training model... Custom RF with ntrees = log2
+Crossvalidation results:  Custom RF with ntrees = log2
+Accuracy:  0.8171326791235382
+Macro Precision:  0.8236919739567788
+Macro Recall:  0.5691948999963354
+Macro F1:  0.6294508235042451
+====================================
+RF different fun experiment
+Training model... Custom RF with ntrees = sqrt
+Crossvalidation results:  Custom RF with ntrees = sqrt
+Accuracy:  0.8171461217905632
+Macro Precision:  0.8145563134819469
+Macro Recall:  0.5807702863324874
+Macro F1:  0.6395838440485581
+====================================
+RF different NB at every experiment
+Training model... Custom RF with ntrees = 2
+Crossvalidation results:  Custom RF with ntrees = 2
+Accuracy:  0.870345476542546
+Macro Precision:  0.8986210644610402
+Macro Recall:  0.6936229838741801
+Macro F1:  0.7620693178133792
+====================================
+RF different NB at every experiment
+Training model... Custom RF with ntrees = 4
+Crossvalidation results:  Custom RF with ntrees = 4
+Accuracy:  0.7806728054846082
+Macro Precision:  0.7522337994142305
+Macro Recall:  0.4988590556174288
+Macro F1:  0.5495661799893425
+====================================
+RF different NB at every experiment
+Training model... Custom RF with ntrees = 6
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Crossvalidation results:  Custom RF with ntrees = 6
+Accuracy:  0.77025137787337
+Macro Precision:  0.6939353883058421
+Macro Recall:  0.469459268801374
+Macro F1:  0.5145637749106647
+====================================
+RF different NB at every experiment
+Training model... Custom RF with ntrees = 10
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/Users/jnachyla/workspace/nauka/randomforest-id3-naivebayes/venv/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1318: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Crossvalidation results:  Custom RF with ntrees = 10
+Accuracy:  0.7627302056728055
+Macro Precision:  0.6561633241585748
+Macro Recall:  0.4379563020711347
+Macro F1:  0.47469844235294734
+====================================
+RF different min samples split experiment
+Training model... Naive Random Forest 2
+Crossvalidation results:  Naive Random Forest 2
+Accuracy:  0.8668873504503292
+Macro Precision:  0.8947236530017669
+Macro Recall:  0.6791324305678372
+Macro F1:  0.7454111759449503
+====================================
+RF different min samples split experiment
+Training model... Naive Random Forest 4
+Crossvalidation results:  Naive Random Forest 4
+Accuracy:  0.868621454496572
+Macro Precision:  0.9041062292693857
+Macro Recall:  0.6781757118479607
+Macro F1:  0.7512579585182004
+====================================
+RF different min samples split experiment
+Training model... Naive Random Forest 10
+Crossvalidation results:  Naive Random Forest 10
+Accuracy:  0.846642693910472
+Macro Precision:  0.8320326043920104
+Macro Recall:  0.589514930842682
+Macro F1:  0.6486992813975601
+
+Process finished with exit code 0
