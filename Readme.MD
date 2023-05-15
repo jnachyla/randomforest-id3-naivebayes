@@ -1,8 +1,6 @@
 ## Random Forest with mixed Id3 and NBC classifiers. 
 
-Random forest with a naive Bayesian classifier (NBC) in a class-
-fiction. We proceed as in creating a random forest, only every second class-
-ficator to NBC. ID3 tree and RF are implemented from scratch.
+Random forest with a naive Bayesian classifier (NBC) in a classification. We proceed as in creating a random forest, only every second classificator to NBC. ID3 tree and RF are implemented from scratch.
 
 ### Installation
 
